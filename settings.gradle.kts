@@ -17,5 +17,4 @@ dependencyResolutionManagement {
 rootProject.name = "Segumovil"
 include(":app")
 include(":Insurance")
-project(":Insurance").projectDir = File("/Users/ivannicolas/AndroidStudioProjects/XIvan/Library/Insurance")
  
