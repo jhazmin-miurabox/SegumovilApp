@@ -1,0 +1,50 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Segumovil" parent="Theme.Insurance.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_variant</item>
+        <item name="colorOnPrimary">@color/color_on_primary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorSecondaryVariant">@color/color_secondary_variant</item>
+        <item name="colorOnSecondary">@color/color_on_secondary</item>
+
+        <item name="colorTertiary">@color/color_tertiary</item>
+        <item name="colorOnTertiary">@color/color_on_tertiary</item>
+        <!-- Backgrounds -->
+        <item name="android:colorBackground">@color/color_background</item>
+        <item name="colorOnBackground">@color/color_on_background</item>
+        <item name="colorSurface">@color/color_surface</item>
+        <item name="colorOnSurface">@color/color_on_surface</item>
+        <item name="colorError">@color/color_error</item>
+        <item name="colorOnError">@color/color_on_error</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <!-- Types -->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Ancora.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Ancora.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Ancora.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Ancora.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Ancora.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Ancora.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Ancora.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Ancora.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Ancora.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Ancora.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Ancora.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Ancora.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.Ancora.Overline</item>
+
+    </style>
+
+    <!--SplashScreen-->
+    <style name="Theme.Segumovil.Splash" parent="Theme.SplashScreen.IconBackground">
+        <item name="windowSplashScreenBackground">@color/color_primary</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/color_background</item>
+        <item name="windowSplashScreenAnimationDuration">500</item>
+        <item name="postSplashScreenTheme">@style/Theme.Segumovil</item>
+    </style>
+</resources>

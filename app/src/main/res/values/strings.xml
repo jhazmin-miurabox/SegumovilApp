@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Segumovil</string>
+
+    <string name="contact_address">Torre cápita - av antea 1032, Nivel 10, Oficina 5, Col. Ejido jurica, C.P. 76100 Querétaro, Querétato</string>
+    <string name="privacy_policies">AVISO DE PRIVACIDAD MIURA BOX S.A. DE C.V.
+\n\n
+ MIURA BOX S.A. de C.V. (en adelante Miura Box), con domicilio en Clemencia Borja Taboada 528 – Local 20, Juriquilla, C.P. 76230, Querétaro Qro. México, hace del conocimiento del Titular de los Datos personales, incluyendo sensibles, patrimoniales o financieros, recabados con motivo de la relación jurídica o comercial celebrada con el Titular, serán recabados y tratados exclusivamente con fines de identificación, operación, administración, análisis, ofrecimiento y promoción de bienes, productos y servicios, así como para cumplir las obligaciones derivadas de cualquier relación jurídica o comercial y para otros fines compatibles y análogos.
+\n\n
+En nuestro carácter de responsables en el tratamiento de datos personales sensibles, observamos los principios de, licitud, consentimiento, información, calidad, finalidad, lealtad, proporcionalidad y responsabilidad, que determina la Ley.
+\n\n
+La información y Datos Personales Sensibles que usted entregue Miura Box, serán tratados con la confidencialidad y diligencia necesarios, siendo almacenados y utilizados para todos los fines vinculados a la relación jurídica o comercial entre Miura Box y usted o su empresa, atendiendo a lo dispuesto por las Leyes mexicanas en vigor.
+\n\n
+Al proporcionar sus datos personales sensibles por cualquier forma a Miura Box S.A. de C.V., el Titular otorga autorización para la recopilación, uso, divulgación, procesamiento y transferencia de la Información personal de acuerdo con los términos establecidos en la Ley.
+\n\n
+Miura Box S.A. de C.V., se reserva el derecho de modificar en cualquier tiempo este Aviso de Privacidad, notificándolo mediante su publicación en su sitio en Internet www.miurabox.com o bien mediante comunicación al Titular de los Datos Personales, vía electrónica o por cualquier otro medio.
+\n\n
+Estando de acuerdo el titular con el tratamiento de sus datos personales sensibles, firma al margen del presente Aviso de Privacidad, para los fines que haya lugar.</string>
+
+    <string name="about_description">Nuestra pasión por servir no tiene límites, todos los días nos comprometemos para dar un servicio de excelencia, personalizado y honesto.
+        \n\nSomos una empresa orgullosamente mexicana con amplia trayectoria, altamente especializada en el mercado de seguros y fianzas.
+        \n\nTrabajamos con los mejores aliados para ofrecer un abanico de opciones y beneficios a través de una solución todo en uno.
+        \n\nPara nosotros, el valor de la vida de nuestros seres queridos no tiene precio; el bienestar, el patrimonio y el tiempo valen oro.</string>
+
+    <string name="home_custom_welcome">BIENVENIDO\n%1s</string>
+
+    <!--Exclusives Ancora-->
+    <string name="home_btn_tickets">Tickets</string>
+    <string name="home_btn_library">Biblioteca virtual</string>
+    <string name="tickets_btn_formalities">Mis trámites</string>
+    <string name="tickets_subtitle">Servicio de atención de tickets</string>
+</resources>

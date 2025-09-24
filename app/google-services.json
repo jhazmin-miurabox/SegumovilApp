@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "755488898306",
+    "project_id": "ancora-bb4dd",
+    "storage_bucket": "ancora-bb4dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755488898306:android:dd7cd67027b17a99a2961b",
+        "android_client_info": {
+          "package_name": "com.ixulabs.ancora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755488898306-at02f8kk5i8tuq9p7tdf35cfco5sp8u0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT33m4ET9xu6CnVIHQ9Q8nxY1I5ywOw0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755488898306-at02f8kk5i8tuq9p7tdf35cfco5sp8u0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "755488898306-l59jmtm2k1rdknk86u05o5gs59fge9h2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ixulabs.ancora"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755488898306:android:d690d792b40563c5a2961b",
+        "android_client_info": {
+          "package_name": "com.miurabox.ancora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755488898306-at02f8kk5i8tuq9p7tdf35cfco5sp8u0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT33m4ET9xu6CnVIHQ9Q8nxY1I5ywOw0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755488898306-at02f8kk5i8tuq9p7tdf35cfco5sp8u0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "755488898306-l59jmtm2k1rdknk86u05o5gs59fge9h2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ixulabs.ancora"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755488898306:android:645b7830c0a54c0ca2961b",
+        "android_client_info": {
+          "package_name": "com.miurabox.segumovilk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755488898306-at02f8kk5i8tuq9p7tdf35cfco5sp8u0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT33m4ET9xu6CnVIHQ9Q8nxY1I5ywOw0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755488898306-at02f8kk5i8tuq9p7tdf35cfco5sp8u0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "755488898306-l59jmtm2k1rdknk86u05o5gs59fge9h2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ixulabs.ancora"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
