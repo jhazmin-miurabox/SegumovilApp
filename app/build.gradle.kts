@@ -58,7 +58,7 @@ val nav_version = "2.6.0"
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.8.0")
 
@@ -68,7 +68,6 @@ dependencies {
     implementation("androidx.core:core-splashscreen:$splash_screen_version")
     //Hilt
     implementation("com.google.dagger:hilt-android:$hilt_version")
-    implementation("androidx.core:core-ktx:+")
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
     //Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
