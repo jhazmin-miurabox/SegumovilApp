@@ -43,6 +43,7 @@
             android:id="@+id/iDueDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             app:subtitle="@{@string/policy_detail_receipt_due_date}"
             app:description="@{utils.formatDateFromString(receipt.vencimiento)}"
             app:layout_constraintStart_toStartOf="@id/iValidity"
