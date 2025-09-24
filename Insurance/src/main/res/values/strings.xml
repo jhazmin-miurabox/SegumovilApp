@@ -220,6 +220,7 @@
     <string name="policy_detail_coverage_cap">Tope coaseguro</string>
     <string name="policy_detail_receipt_status">Estado</string>
     <string name="policy_detail_receipt_bonus">Prima</string>
+    <string name="policy_detail_receipt_due_date">Vencimiento</string>
     <string name="policy_detail_title">Detalles de la póliza</string>
     <string name="policy_error">Error al consultar la póliza.</string>
 
