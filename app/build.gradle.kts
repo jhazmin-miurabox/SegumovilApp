@@ -32,7 +32,10 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
+            // Deshabilitamos R8 para el release porque la ofuscación estaba generando
+            // errores de clases faltantes durante el empaquetado del .aab. Con el shrink
+            // desactivado evitamos que se ejecute R8 y el bundle se genera correctamente.
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
