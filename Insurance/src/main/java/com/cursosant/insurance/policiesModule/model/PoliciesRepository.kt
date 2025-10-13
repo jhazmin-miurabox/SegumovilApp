@@ -1,7 +1,7 @@
 package com.cursosant.insurance.policiesModule.model
 
 import com.cursosant.insurance.common.entities.InsuranceException
-import com.cursosant.insurance.common.entities.Policy
+import com.cursosant.insurance.common.entities.PoliciesPage
 import com.cursosant.insurance.common.model.BaseRepository
 import com.cursosant.insurance.common.utils.TypeError
 import kotlinx.coroutines.Dispatchers
@@ -23,10 +23,10 @@ import javax.inject.Inject
  * www.alainnicolastello.com
  ***/
 class PoliciesRepository @Inject constructor(private val dataSource: DataSource): BaseRepository(){
-    suspend fun getPolicies(token: String, callback: (List<Policy>) -> Unit) =
+    suspend fun getPolicies(token: String, page: Int?, callback: (PoliciesPage) -> Unit) =
         withContext(Dispatchers.IO){
         executeAction(InsuranceException(TypeError.POLICIES)){
-            val result = dataSource.getPolicies(token)
+            val result = dataSource.getPolicies(token, page)
             callback(result)
         }
     }

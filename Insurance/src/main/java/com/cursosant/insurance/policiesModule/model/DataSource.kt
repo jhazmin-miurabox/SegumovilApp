@@ -1,8 +1,7 @@
 package com.cursosant.insurance.policiesModule.model
 
 import com.cursosant.insurance.common.dataAccess.MiuraboxService
-import com.cursosant.insurance.common.dataAccess.UserService
-import com.cursosant.insurance.common.entities.Policy
+import com.cursosant.insurance.common.entities.PoliciesPage
 import com.cursosant.insurance.common.utils.Constants
 import javax.inject.Inject
 
@@ -21,15 +20,7 @@ import javax.inject.Inject
  * www.alainnicolastello.com
  ***/
 class DataSource @Inject constructor(private val service: MiuraboxService) {
-    suspend fun getPolicies(token: String): List<Policy>{
-        val response = service.getPoliciesByUser("${Constants.H_BEARER}$token")
-        return response.policies
-        /*return try {
-            val result = service.getPoliciesByUser(token)
-            result
-        } catch (e: Exception) {
-            e.printStackTrace()
-            listOf()
-        }*/
+    suspend fun getPolicies(token: String, page: Int?): PoliciesPage {
+        return service.getPoliciesByUser("${Constants.H_BEARER}$token", page)
     }
 }
