@@ -25,7 +25,7 @@ import javax.inject.Inject
 class PoliciesRepository @Inject constructor(private val dataSource: DataSource) : BaseRepository() {
     suspend fun getPolicies(token: String, page: Int?): PoliciesPage =
         withContext(Dispatchers.IO) {
-            executeAction(InsuranceException(TypeError.POLICIES)) {
+            executeAction<PoliciesPage>(InsuranceException(TypeError.POLICIES)) {
                 dataSource.getPolicies(token, page)
             }
         }
