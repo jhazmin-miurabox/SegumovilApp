@@ -22,7 +22,7 @@ import retrofit2.http.Query
 interface MiuraboxService {
 
     @GET(Constants.PATH_POLICIES)
-    suspend fun getPoliciesByUser(
+    suspend fun getPoliciesPageByUser(
         @Header(Constants.H_AUTHORIZATION) token: String,
         @Query("page") page: Int? = null
     ) : PoliciesPage
