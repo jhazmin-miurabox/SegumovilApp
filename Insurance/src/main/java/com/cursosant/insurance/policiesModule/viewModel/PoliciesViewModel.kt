@@ -36,8 +36,8 @@ class PoliciesViewModel @Inject constructor(private val repository: PoliciesRepo
     private val _canGoPrevious = MutableLiveData(false)
     val canGoPrevious: LiveData<Boolean> = _canGoPrevious
 
-    private val _pageIndicator = MutableLiveData<String>()
-    val pageIndicator: LiveData<String> = _pageIndicator
+    private val _pageIndicator = MutableLiveData<String?>()
+    val pageIndicator: LiveData<String?> = _pageIndicator
 
     private val _isPaginationVisible = MutableLiveData(false)
     val isPaginationVisible: LiveData<Boolean> = _isPaginationVisible
@@ -81,6 +81,11 @@ class PoliciesViewModel @Inject constructor(private val repository: PoliciesRepo
                 _canGoPrevious.postValue(previousPreviousState ?: false)
                 throw exception
             }
+            if (hasCount) {
+                append(" · ")
+                append(totalCount)
+                append(" pólizas")
+            }
         }
         return builder.toString()
     }
@@ -111,7 +116,7 @@ class PoliciesViewModel @Inject constructor(private val repository: PoliciesRepo
         pageSize = null
         _canGoNext.postValue(false)
         _canGoPrevious.postValue(false)
-        _pageIndicator.postValue("")
+        _pageIndicator.postValue(null)
         _isPaginationVisible.postValue(false)
     }
 
@@ -135,25 +140,20 @@ class PoliciesViewModel @Inject constructor(private val repository: PoliciesRepo
         val hasPolicies = page.policies.isNotEmpty()
         val hasCount = (page.count ?: 0) > 0
         val shouldShowIndicator = hasPolicies || hasCount
-        _pageIndicator.postValue(if (shouldShowIndicator) buildPageIndicator(hasCount) else "")
+        _pageIndicator.postValue(if (shouldShowIndicator) buildPageIndicator(hasCount) else null)
         _isPaginationVisible.postValue(shouldShowIndicator)
     }
 
     private fun buildPageIndicator(hasCount: Boolean): String {
-        val builder = StringBuilder().apply {
-            append("Página ")
-            append(currentPage)
-            determineTotalPages()?.let {
-                append(" de ")
-                append(it)
-            }
-            if (hasCount) {
-                append(" · ")
-                append(totalCount)
-                append(" pólizas")
-            }
+        var indicator = "Página $currentPage"
+        determineTotalPages()?.let { totalPages ->
+            indicator += " de $totalPages"
         }
-        return builder.toString()
+        if (hasCount) {
+            val total = totalCount ?: 0
+            indicator += " · $total pólizas"
+        }
+        return indicator
     }
 
     private fun determineTotalPages(): Int? {
