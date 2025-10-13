@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -6,6 +8,15 @@ plugins {
     id("androidx.navigation.safeargs.kotlin") // solo si usas SafeArgs en este módulo
     id("kotlin-parcelize")
 }
+
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) {
+        file.inputStream().use { load(it) }
+    }
+}
+
+val localMiuraboxBaseUrl = localProperties.getProperty("miurabox.baseUrl") ?: "http://127.0.0.1:8000/"
 
 android {
     namespace = "com.cursosant.insurance"
@@ -27,6 +38,15 @@ android {
 
     kotlinOptions {
         jvmTarget = "17"
+    }
+
+    buildTypes {
+        getByName("debug") {
+            buildConfigField("String", "MIURABOX_BASE_URL", "\"$localMiuraboxBaseUrl\"")
+        }
+        getByName("release") {
+            buildConfigField("String", "MIURABOX_BASE_URL", "\"https://users-api.miurabox.com/\"")
+        }
     }
 }
 

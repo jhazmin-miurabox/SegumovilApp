@@ -2,6 +2,7 @@ package com.cursosant.insurance.common.utils
 
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
+import com.cursosant.insurance.BuildConfig
 
 /****
  * Project: Insurance
@@ -21,7 +22,7 @@ object Constants {
     const val BASE_URL = "https://users-api.miurabox.com/"
 
     const val BASE_USER_URL = "https://users-api.miurabox.com/"
-    const val BASE_MIURABOX_URL = "http://127.0.0.1:8000/"
+    val BASE_MIURABOX_URL: String = BuildConfig.MIURABOX_BASE_URL
     const val BASE_MULTI_QUOTE = "https://grupoasapi.multicotizador.com/"
 
     const val PATH_LOGIN = "/app-us-login"
