@@ -21,7 +21,7 @@ object Constants {
     const val BASE_URL = "https://users-api.miurabox.com/"
 
     const val BASE_USER_URL = "https://users-api.miurabox.com/"
-    const val BASE_MIURABOX_URL = "https://api.miurabox.com/"
+    const val BASE_MIURABOX_URL = "http://127.0.0.1:8000/"
     const val BASE_MULTI_QUOTE = "https://grupoasapi.multicotizador.com/"
 
     const val PATH_LOGIN = "/app-us-login"
@@ -32,7 +32,7 @@ object Constants {
     const val PATH_DELETE_ACCOUNT = "/desactivar-usuario-app"
     const val PATH_DISABLE_ACCOUNT = "/desactivar_user_app"
 
-    const val PATH_POLICIES = "/poliza-by-user-app/"
+    const val PATH_POLICIES = "/poliza-by-user-app-paginado/"
     const val PATH_INSURERS = "/provider-by-user-app/"
     const val PATH_POLICY = "/v1/policies-detail-app/"
     const val PATH_DOCUMENTS = "/archivos/editables/"

@@ -22,7 +22,8 @@ import javax.inject.Inject
  ***/
 class DataSource @Inject constructor(private val service: MiuraboxService) {
     suspend fun getPolicies(token: String): List<Policy>{
-        return service.getPoliciesByUser("${Constants.H_BEARER}$token")
+        val response = service.getPoliciesByUser("${Constants.H_BEARER}$token")
+        return response.policies
         /*return try {
             val result = service.getPoliciesByUser(token)
             result
