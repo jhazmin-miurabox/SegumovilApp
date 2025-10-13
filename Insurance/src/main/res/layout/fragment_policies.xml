@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text='@{viewModel.pageIndicator != null ? viewModel.pageIndicator : ""}'
+                    android:text="@{viewModel.pageIndicator}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                     tools:text="Página 1 de 3 · 21 pólizas"/>
 
