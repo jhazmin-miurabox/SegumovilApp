@@ -82,6 +82,91 @@ class PoliciesViewModel @Inject constructor(private val repository: PoliciesRepo
                 throw exception
             }
         }
+        return builder.toString()
+    }
+
+    private fun determineTotalPages(): Int? {
+        val count = totalCount ?: return null
+        if (count <= 0) return null
+        val size = pageSize ?: return null
+        if (size <= 0) return null
+        val pages = (count + size - 1) / size
+        return if (pages > 0) pages else 1
+    }
+
+    private fun extractPageNumber(pageUrl: String?): Int? {
+        if (pageUrl.isNullOrBlank()) return null
+        return try {
+            Uri.parse(pageUrl).getQueryParameter("page")?.toIntOrNull()
+        } catch (_: Exception) {
+            null
+        }
+    }
+
+    private fun resetPagination() {
+        currentPage = 1
+        nextPage = null
+        previousPage = null
+        totalCount = null
+        pageSize = null
+        _canGoNext.postValue(false)
+        _canGoPrevious.postValue(false)
+        _pageIndicator.postValue(null)
+        _isPaginationVisible.postValue(false)
+    }
+
+    private fun updatePolicies(policies: List<Policy>) {
+        _policies.postValue(policies)
+    }
+
+    private fun updatePaginationState(page: PoliciesPage, requestedPage: Int) {
+        currentPage = requestedPage
+        totalCount = page.count
+        if (pageSize == null && page.policies.isNotEmpty()) {
+            pageSize = page.policies.size
+        }
+
+        nextPage = extractPageNumber(page.next)
+        previousPage = extractPageNumber(page.previous)
+
+        _canGoNext.postValue(nextPage != null)
+        _canGoPrevious.postValue(previousPage != null)
+
+        val hasPolicies = page.policies.isNotEmpty()
+        val hasCount = (page.count ?: 0) > 0
+        val shouldShowIndicator = hasPolicies || hasCount
+        _pageIndicator.postValue(if (shouldShowIndicator) buildPageIndicator(hasCount) else null)
+        _isPaginationVisible.postValue(shouldShowIndicator)
+    }
+
+    private fun buildPageIndicator(hasCount: Boolean): String {
+        var indicator = "Página $currentPage"
+        determineTotalPages()?.let { totalPages ->
+            indicator += " de $totalPages"
+        }
+        if (hasCount) {
+            val total = totalCount ?: 0
+            indicator += " · $total pólizas"
+        }
+        return indicator
+    }
+
+    private fun determineTotalPages(): Int? {
+        val count = totalCount ?: return null
+        if (count <= 0) return null
+        val size = pageSize ?: return null
+        if (size <= 0) return null
+        val pages = (count + size - 1) / size
+        return if (pages > 0) pages else 1
+    }
+
+    private fun extractPageNumber(pageUrl: String?): Int? {
+        if (pageUrl.isNullOrBlank()) return null
+        return try {
+            Uri.parse(pageUrl).getQueryParameter("page")?.toIntOrNull()
+        } catch (_: Exception) {
+            null
+        }
     }
 
     private fun resetPagination() {
