@@ -39,6 +39,9 @@ class PoliciesViewModel @Inject constructor(private val repository: PoliciesRepo
     private val _pageIndicator = MutableLiveData<String>()
     val pageIndicator: LiveData<String> = _pageIndicator
 
+    private val _isPaginationVisible = MutableLiveData(false)
+    val isPaginationVisible: LiveData<Boolean> = _isPaginationVisible
+
     private var authToken: String? = null
     private var currentPage: Int = 1
     private var nextPage: Int? = null
@@ -79,6 +82,25 @@ class PoliciesViewModel @Inject constructor(private val repository: PoliciesRepo
                 throw exception
             }
         }
+        return builder.toString()
+    }
+
+    private fun determineTotalPages(): Int? {
+        val count = totalCount ?: return null
+        if (count <= 0) return null
+        val size = pageSize ?: return null
+        if (size <= 0) return null
+        val pages = (count + size - 1) / size
+        return if (pages > 0) pages else 1
+    }
+
+    private fun extractPageNumber(pageUrl: String?): Int? {
+        if (pageUrl.isNullOrBlank()) return null
+        return try {
+            Uri.parse(pageUrl).getQueryParameter("page")?.toIntOrNull()
+        } catch (_: Exception) {
+            null
+        }
     }
 
     private fun resetPagination() {
@@ -90,6 +112,7 @@ class PoliciesViewModel @Inject constructor(private val repository: PoliciesRepo
         _canGoNext.postValue(false)
         _canGoPrevious.postValue(false)
         _pageIndicator.postValue("")
+        _isPaginationVisible.postValue(false)
     }
 
     private fun updatePolicies(policies: List<Policy>) {
@@ -113,6 +136,7 @@ class PoliciesViewModel @Inject constructor(private val repository: PoliciesRepo
         val hasCount = (page.count ?: 0) > 0
         val shouldShowIndicator = hasPolicies || hasCount
         _pageIndicator.postValue(if (shouldShowIndicator) buildPageIndicator(hasCount) else "")
+        _isPaginationVisible.postValue(shouldShowIndicator)
     }
 
     private fun buildPageIndicator(hasCount: Boolean): String {
