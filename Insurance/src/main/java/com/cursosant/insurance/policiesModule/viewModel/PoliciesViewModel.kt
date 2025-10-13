@@ -73,10 +73,9 @@ class PoliciesViewModel @Inject constructor(private val repository: PoliciesRepo
         _canGoPrevious.postValue(false)
         executeAction {
             try {
-                repository.getPolicies(token, page) { result ->
-                    updatePolicies(result.policies)
-                    updatePaginationState(result, page)
-                }
+                val result = repository.getPolicies(token, page)
+                updatePolicies(result.policies)
+                updatePaginationState(result, page)
             } catch (exception: InsuranceException) {
                 _canGoNext.postValue(previousNextState ?: false)
                 _canGoPrevious.postValue(previousPreviousState ?: false)

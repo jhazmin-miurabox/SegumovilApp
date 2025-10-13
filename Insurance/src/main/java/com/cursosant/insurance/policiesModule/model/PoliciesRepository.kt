@@ -22,12 +22,11 @@ import javax.inject.Inject
  * Coupons on my Website:
  * www.alainnicolastello.com
  ***/
-class PoliciesRepository @Inject constructor(private val dataSource: DataSource): BaseRepository(){
-    suspend fun getPolicies(token: String, page: Int?, callback: (PoliciesPage) -> Unit) =
-        withContext(Dispatchers.IO){
-        executeAction(InsuranceException(TypeError.POLICIES)){
-            val result = dataSource.getPolicies(token, page)
-            callback(result)
+class PoliciesRepository @Inject constructor(private val dataSource: DataSource) : BaseRepository() {
+    suspend fun getPolicies(token: String, page: Int?): PoliciesPage =
+        withContext(Dispatchers.IO) {
+            executeAction(InsuranceException(TypeError.POLICIES)) {
+                dataSource.getPolicies(token, page)
+            }
         }
-    }
 }
