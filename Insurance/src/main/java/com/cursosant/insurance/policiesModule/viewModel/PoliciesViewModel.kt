@@ -36,9 +36,6 @@ class PoliciesViewModel @Inject constructor(private val repository: PoliciesRepo
     private val _canGoPrevious = MutableLiveData(false)
     val canGoPrevious: LiveData<Boolean> = _canGoPrevious
 
-    private val _showPagination = MutableLiveData(false)
-    val showPagination: LiveData<Boolean> = _showPagination
-
     private val _pageIndicator = MutableLiveData<String>()
     val pageIndicator: LiveData<String> = _pageIndicator
 
@@ -92,7 +89,6 @@ class PoliciesViewModel @Inject constructor(private val repository: PoliciesRepo
         pageSize = null
         _canGoNext.postValue(false)
         _canGoPrevious.postValue(false)
-        _showPagination.postValue(false)
         _pageIndicator.postValue("")
     }
 
@@ -115,8 +111,8 @@ class PoliciesViewModel @Inject constructor(private val repository: PoliciesRepo
 
         val hasPolicies = page.policies.isNotEmpty()
         val hasCount = (page.count ?: 0) > 0
-        _showPagination.postValue(hasPolicies || hasCount)
-        _pageIndicator.postValue(buildPageIndicator(hasCount))
+        val shouldShowIndicator = hasPolicies || hasCount
+        _pageIndicator.postValue(if (shouldShowIndicator) buildPageIndicator(hasCount) else "")
     }
 
     private fun buildPageIndicator(hasCount: Boolean): String {
