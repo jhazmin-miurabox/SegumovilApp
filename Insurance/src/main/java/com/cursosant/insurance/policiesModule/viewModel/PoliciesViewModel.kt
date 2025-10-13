@@ -82,6 +82,25 @@ class PoliciesViewModel @Inject constructor(private val repository: PoliciesRepo
                 throw exception
             }
         }
+        return builder.toString()
+    }
+
+    private fun determineTotalPages(): Int? {
+        val count = totalCount ?: return null
+        if (count <= 0) return null
+        val size = pageSize ?: return null
+        if (size <= 0) return null
+        val pages = (count + size - 1) / size
+        return if (pages > 0) pages else 1
+    }
+
+    private fun extractPageNumber(pageUrl: String?): Int? {
+        if (pageUrl.isNullOrBlank()) return null
+        return try {
+            Uri.parse(pageUrl).getQueryParameter("page")?.toIntOrNull()
+        } catch (_: Exception) {
+            null
+        }
     }
 
     private fun resetPagination() {
