@@ -19,10 +19,11 @@ import com.cursosant.insurance.BuildConfig
  * www.alainnicolastello.com
  ***/
 object Constants {
-    const val BASE_URL = "https://users-api.miurabox.com/"
+    private const val DEFAULT_REMOTE_URL = "https://users-api.miurabox.com/"
 
-    const val BASE_USER_URL = "https://users-api.miurabox.com/"
-    val BASE_MIURABOX_URL: String = BuildConfig.MIURABOX_BASE_URL
+    val BASE_MIURABOX_URL: String = BuildConfig.MIURABOX_BASE_URL.ifBlank { DEFAULT_REMOTE_URL }
+    val BASE_USER_URL: String = BASE_MIURABOX_URL
+    val BASE_URL: String = BASE_MIURABOX_URL
     const val BASE_MULTI_QUOTE = "https://grupoasapi.multicotizador.com/"
 
     const val PATH_LOGIN = "/app-us-login"

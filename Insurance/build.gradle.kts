@@ -16,7 +16,13 @@ val localProperties = Properties().apply {
     }
 }
 
-val localMiuraboxBaseUrl = localProperties.getProperty("miurabox.baseUrl") ?: "http://127.0.0.1:8000/"
+val debugMiuraboxBaseUrl = localProperties.getProperty("miurabox.baseUrl.debug")
+    ?: localProperties.getProperty("miurabox.baseUrl")
+    ?: "http://127.0.0.1:8000/"
+
+val releaseMiuraboxBaseUrl = localProperties.getProperty("miurabox.baseUrl.release")
+    ?: localProperties.getProperty("miurabox.baseUrl")
+    ?: "https://users-api.miurabox.com/"
 
 android {
     namespace = "com.cursosant.insurance"
@@ -43,10 +49,10 @@ android {
 
     buildTypes {
         getByName("debug") {
-            buildConfigField("String", "MIURABOX_BASE_URL", "\"$localMiuraboxBaseUrl\"")
+            buildConfigField("String", "MIURABOX_BASE_URL", "\"$debugMiuraboxBaseUrl\"")
         }
         getByName("release") {
-            buildConfigField("String", "MIURABOX_BASE_URL", "\"https://users-api.miurabox.com/\"")
+            buildConfigField("String", "MIURABOX_BASE_URL", "\"$releaseMiuraboxBaseUrl\"")
         }
     }
 }
