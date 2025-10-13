@@ -49,7 +49,7 @@ class PoliciesFragment : Fragment(), OnClickListener{
 
     private fun setupViewModel() {
         val vm: PoliciesViewModel by viewModels()
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.setVariable(BR.viewModel, vm)
     }
 
@@ -74,6 +74,8 @@ class PoliciesFragment : Fragment(), OnClickListener{
 
     private fun setupButtons() {
         binding.retryContainer.btnRetry.setOnClickListener { getPolicies() }
+        binding.btnNext.setOnClickListener { binding.viewModel?.loadNextPage() }
+        binding.btnPrevious.setOnClickListener { binding.viewModel?.loadPreviousPage() }
     }
 
     override fun onResume() {
@@ -82,7 +84,7 @@ class PoliciesFragment : Fragment(), OnClickListener{
     }
 
     private fun getPolicies() {
-        User.instance?.let { binding.viewModel?.getPolicies(it.token.token) }
+        User.instance?.let { binding.viewModel?.loadFirstPage(it.token.token) }
     }
 
     override fun onDestroyView() {
